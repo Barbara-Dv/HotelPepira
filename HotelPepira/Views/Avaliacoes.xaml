@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelPepira.Views.Avaliacoes"
+             Title="Avaliações">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Avaliações dos Clientes"
+                   FontSize="30"
+                   FontAttributes="Bold"/>
+
+            <Frame>
+                <VerticalStackLayout>
+                    <Label Text="★★★★★" TextColor="Gold" FontSize="25"/>
+                    <Label Text="“Melhor hotel que já visitei!”"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame>
+                <VerticalStackLayout>
+                    <Label Text="★★★★☆" TextColor="Gold" FontSize="25"/>
+                    <Label Text="“Atendimento maravilhoso.”"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame>
+                <VerticalStackLayout>
+                    <Label Text="★★★★★" TextColor="Gold" FontSize="25"/>
+                    <Label Text="“Vista incrível e quartos perfeitos.”"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Voltar"
+        BackgroundColor="#5a6f22"
+        TextColor="White"
+        Clicked="OnVoltarClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

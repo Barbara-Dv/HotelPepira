@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelPepira.Views.Contato">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label Text="Contato"
+               FontSize="35"
+               FontAttributes="Bold"/>
+
+        <Button Text="📞 Telefone"
+                Clicked="OnTelefoneClicked"/>
+
+        <Button Text="💬 WhatsApp"
+                Clicked="OnWhatsAppClicked"/>
+
+        <Button Text="🌐 Site Oficial"
+                Clicked="OnSiteClicked"/>
+
+        <Button Text="Voltar"
+        BackgroundColor="#5a6f22"
+        TextColor="White"
+        Clicked="OnVoltarClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

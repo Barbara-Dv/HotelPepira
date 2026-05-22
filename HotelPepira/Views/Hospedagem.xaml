@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelPepira.Views.Hospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#d8b952">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="15"
+                             Spacing="18">
+
+            <!-- TÍTULO -->
+            <VerticalStackLayout Spacing="2">
+
+                <Label Text="Hotel Pepira"
+                       FontFamily="OswaldRegular"
+                       FontSize="42"
+                       TextColor="#5a6f22"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Faça seu Check-in"
+                       FontSize="18"
+                       TextColor="#743d00"
+                       HorizontalTextAlignment="Center"/>
+
+            </VerticalStackLayout>
+
+            <!-- CARROSSEL -->
+            <Frame Padding="0"
+       CornerRadius="28"
+       HasShadow="True"
+       BorderColor="#743d00"
+       HorizontalOptions="FillAndExpand"
+       VerticalOptions="Start">
+
+                <CarouselView HeightRequest="420"
+                  Loop="True"
+                  IndicatorView="indicador">
+
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>hotel1.jpg</x:String>
+                            <x:String>hotel2.jpg</x:String>
+                            <x:String>brotas.jpg</x:String>
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HeightRequest="420">
+
+                                <Image Source="{Binding}"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill"/>
+
+                                <BoxView Color="Black"
+                             Opacity="0.15"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+
+                </CarouselView>
+
+            </Frame>
+
+            <!-- INDICADOR -->
+            <IndicatorView x:Name="indicador"
+                           HorizontalOptions="Center"
+                           IndicatorColor="#c8c8c8"
+                           SelectedIndicatorColor="#743d00"/>
+
+            <!-- CARD PRINCIPAL -->
+            <Frame Padding="18"
+                   BackgroundColor="White"
+                   CornerRadius="20"
+                   HasShadow="True"
+                   BorderColor="#d1c08d">
+
+                <VerticalStackLayout Spacing="18">
+
+                    <!-- HÓSPEDES -->
+                    <Frame CornerRadius="15"
+                           Padding="12"
+                           BackgroundColor="#f9f6ea"
+                           BorderColor="#e2d39c">
+
+                        <VerticalStackLayout Spacing="12">
+
+                            <Label Text="Hóspedes"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="#5a6f22"/>
+
+                            <Grid RowDefinitions="Auto,Auto"
+                                  ColumnDefinitions="*,Auto,Auto">
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="Adultos"
+                                       VerticalOptions="Center"/>
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding Value, Source={x:Reference stp_adulto}}"
+                                       FontAttributes="Bold"
+                                       Margin="0,0,10,0"/>
+
+                                <Stepper Grid.Row="0"
+                                         Grid.Column="2"
+                                         x:Name="stp_adulto"
+                                         Minimum="0"
+                                         Maximum="10"
+                                         Increment="1"/>
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="Crianças"
+                                       VerticalOptions="Center"/>
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Value, Source={x:Reference stp_crianca}}"
+                                       FontAttributes="Bold"
+                                       Margin="0,0,10,0"/>
+
+                                <Stepper Grid.Row="1"
+                                         Grid.Column="2"
+                                         x:Name="stp_crianca"
+                                         Minimum="0"
+                                         Maximum="10"
+                                         Increment="1"/>
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                    <!-- SUÍTES -->
+                    <Frame CornerRadius="15"
+                           Padding="12"
+                           BackgroundColor="#f9f6ea"
+                           BorderColor="#e2d39c">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label Text="Escolha sua Suíte"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="#5a6f22"/>
+
+                            <Picker x:Name="pck_quarto"
+                                    Title="Selecione sua acomodação"
+                                    ItemDisplayBinding="{Binding Descricao}"
+                                    SelectedIndexChanged="pck_quarto_SelectedIndexChanged"
+                                    BackgroundColor="White"
+                                    TextColor="Black"/>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                    <!-- DATAS -->
+                    <Frame CornerRadius="15"
+                           Padding="15"
+                           BackgroundColor="#f9f6ea"
+                           BorderColor="#e2d39c">
+
+                        <VerticalStackLayout Spacing="15">
+
+                            <Label Text="Período da Estadia"
+                                   FontAttributes="Bold"
+                                   FontSize="20"
+                                   TextColor="#5a6f22"/>
+
+                            <VerticalStackLayout Spacing="5">
+
+                                <Label Text="Check-in"
+                                       FontAttributes="Bold"
+                                       TextColor="#743d00"/>
+
+                                <DatePicker x:Name="dtpck_checkin"
+                                            Format="dd/MM/yyyy"
+                                            BackgroundColor="White"
+                                            TextColor="Black"/>
+
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Spacing="5">
+
+                                <Label Text="Check-out"
+                                       FontAttributes="Bold"
+                                       TextColor="#743d00"/>
+
+                                <DatePicker x:Name="dtpck_checkout"
+                                            Format="dd/MM/yyyy"
+                                            BackgroundColor="White"
+                                            TextColor="Black"/>
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                    <!-- CUPOM -->
+                    <Frame CornerRadius="15"
+                           Padding="12"
+                           BackgroundColor="#f9f6ea"
+                           BorderColor="#e2d39c">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label Text="Cupom de desconto"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="#5a6f22"/>
+
+                            <Entry x:Name="txtCupom"
+                                   Placeholder="Digite seu cupom"
+                                   BackgroundColor="White"
+                                   TextColor="Black"/>
+
+                            <Button Text="Aplicar Cupom"
+                                    BackgroundColor="#5a6f22"
+                                    TextColor="White"
+                                    CornerRadius="12"
+                                    HeightRequest="50"
+                                    Clicked="OnAplicarCupomClicked"/>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                    <!-- TOTAL -->
+                    <Frame CornerRadius="15"
+                           Padding="15"
+                           BackgroundColor="#743d00">
+
+                        <HorizontalStackLayout Spacing="10"
+                                               HorizontalOptions="Center">
+
+                            <Label Text="Valor Total:"
+                                   FontAttributes="Bold"
+                                   FontSize="22"
+                                   TextColor="White"/>
+
+                            <Label x:Name="lblTotal"
+                                   Text="R$ 299,90"
+                                   FontAttributes="Bold"
+                                   FontSize="22"
+                                   TextColor="#d8b952"/>
+
+                        </HorizontalStackLayout>
+
+                    </Frame>
+
+                    <!-- TEMA -->
+                    <Frame CornerRadius="15"
+                           Padding="12"
+                           BackgroundColor="#f9f6ea"
+                           BorderColor="#e2d39c">
+
+                        <HorizontalStackLayout Spacing="12">
+
+                            <Label Text="Modo Escuro"
+                                   VerticalOptions="Center"
+                                   FontAttributes="Bold"/>
+
+                            <Switch x:Name="switchTema"
+                                    Toggled="switchTema_Toggled"/>
+
+                        </HorizontalStackLayout>
+
+                    </Frame>
+
+                    <!-- BOTÕES -->
+                    <VerticalStackLayout Spacing="12">
+
+                        <Button Text="Entrar em contato"
+                                BackgroundColor="#5a6f22"
+                                TextColor="White"
+                                CornerRadius="15"
+                                HeightRequest="55"
+                                FontAttributes="Bold"
+                                Clicked="ContatoWhatsApp_Clicked"/>
+
+                        <Button Text="AVANÇAR"
+                                BackgroundColor="#743d00"
+                                TextColor="White"
+                                CornerRadius="15"
+                                HeightRequest="55"
+                                FontAttributes="Bold"
+                                Clicked="OnAvancarClicked"/>
+
+                        <Button Text="VOLTAR"
+                                BackgroundColor="#743d00"
+                                TextColor="White"
+                                CornerRadius="15"
+                                HeightRequest="50"
+                                Clicked="OnVoltarClicked"/>
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
