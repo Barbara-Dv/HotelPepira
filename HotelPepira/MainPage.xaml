@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelPepira.Views.MainPage"
@@ -6,85 +7,168 @@
              BackgroundColor="#d8b952">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
 
-            <!-- Título -->
+        <VerticalStackLayout Padding="20"
+                             Spacing="20">
+
+            <!-- ================================= -->
+            <!-- TÍTULO -->
+            <!-- ================================= -->
+
             <Label Text="Hotel Pepira"
                    FontSize="42"
                    FontAttributes="Bold"
                    TextColor="#5a6f22"
-                   HorizontalOptions="Center"/>
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
 
-            <!-- Sobre -->
+            <!-- ================================= -->
+            <!-- SOBRE O HOTEL -->
+            <!-- ================================= -->
+
             <Frame Style="{StaticResource CardStyle}">
+
                 <VerticalStackLayout Spacing="10">
 
                     <Label Text="Sobre o Hotel"
-                           Style="{StaticResource TituloCard}"/>
+                           Style="{StaticResource TituloCard}" />
 
                     <Label Text="O Hotel Pepira oferece conforto, luxo e uma experiência inesquecível para famílias, casais e viajantes."
-                           FontSize="16"/>
+                           FontSize="16"
+                           TextColor="#333333"
+                           LineBreakMode="WordWrap" />
 
                     <Label Text="✔ Piscina"
-                           FontSize="16"/>
+                           FontSize="16" />
 
                     <Label Text="✔ Restaurante"
-                           FontSize="16"/>
+                           FontSize="16" />
 
                     <Label Text="✔ Suítes Premium"
-                           FontSize="16"/>
+                           FontSize="16" />
 
                     <Label Text="✔ Vista Panorâmica"
-                           FontSize="16"/>
+                           FontSize="16" />
 
                 </VerticalStackLayout>
+
             </Frame>
 
-            <!-- Avaliações -->
+            <!-- ================================= -->
+            <!-- AVALIAÇÕES -->
+            <!-- ================================= -->
+
             <Frame Style="{StaticResource CardStyle}">
-                <VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
 
                     <Label Text="Avaliações"
-                           Style="{StaticResource TituloCard}"/>
+                           Style="{StaticResource TituloCard}" />
 
                     <Label Text="★★★★★"
                            FontSize="30"
                            TextColor="Gold"
-                           HorizontalOptions="Center"/>
+                           HorizontalOptions="Center" />
 
                     <Label Text="4.9 de 5 estrelas"
-                           HorizontalOptions="Center"/>
+                           FontSize="16"
+                           HorizontalOptions="Center" />
+
                 </VerticalStackLayout>
+
             </Frame>
 
-            <!-- Localização -->
+            <!-- ================================= -->
+            <!-- LOCALIZAÇÃO -->
+            <!-- ================================= -->
+
             <Frame Style="{StaticResource CardStyle}">
+
                 <VerticalStackLayout Spacing="10">
 
                     <Label Text="Localização"
-                           Style="{StaticResource TituloCard}"/>
+                           Style="{StaticResource TituloCard}" />
 
-                    <Label Text="📍 São Paulo - Brasil"/>
+                    <Label Text="📍 Rua Joaquim Dias Ramos, 75&#10;Bairro do Patrimônio&#10;Brotas - SP&#10;CEP 17390-000"
+                           FontSize="16"
+                           TextColor="#333333"
+                           LineBreakMode="WordWrap" />
 
-                    <Button Text="Ver localização"
+                    <Button Text="📍 Ver localização"
                             Style="{StaticResource BotaoPadrao}"
-                            Clicked="OnLocalizacaoClicked"/>
+                            Clicked="OnLocalizacaoClicked" />
+
                 </VerticalStackLayout>
+
             </Frame>
 
-            <!-- Navegação -->
-            <Button Text="Fazer Check-in"
-                    Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnHospedagemClicked"/>
+            <!-- ================================= -->
+            <!-- NAVEGAÇÃO -->
+            <!-- ================================= -->
 
-            <Button Text="Avaliações"
+            <Button Text="🏨 Fazer Check-in"
                     Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnAvaliacoesClicked"/>
+                    Clicked="OnHospedagemClicked" />
 
-            <Button Text="Contato"
+            <Button Text="⭐ Avaliações"
                     Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnContatoClicked"/>
+                    Clicked="OnAvaliacoesClicked" />
+
+            <Button Text="📞 Contato"
+                    Style="{StaticResource BotaoPadrao}"
+                    Clicked="OnContatoClicked" />
+
+            <!-- ================================= -->
+            <!-- ÁREA DO APP / API -->
+            <!-- ================================= -->
+
+            <Frame Style="{StaticResource CardStyle}"
+                   Margin="0,10,0,0">
+
+                <VerticalStackLayout Spacing="20">
+
+                    <Label Text="AppHotel"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           TextColor="#5a6f22"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Hotel: Hospedagem"
+                           FontSize="18"
+                           TextColor="#333333"
+                           HorizontalOptions="Center" />
+
+                    <!-- ================================= -->
+                    <!-- CLIMA -->
+                    <!-- ================================= -->
+
+                    <Button Text="⛅ Consultar clima"
+                            Style="{StaticResource BotaoPadrao}"
+                            Clicked="OnConsultarClimaClicked" />
+
+                    <Label x:Name="lblClima"
+                           Text="Clique no botão para consultar a API"
+                           FontSize="18"
+                           TextColor="#333333"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Fill"
+                           LineBreakMode="WordWrap"
+                           Margin="0,5,0,0" />
+
+                    <!-- ================================= -->
+                    <!-- HOSPEDAGEM -->
+                    <!-- ================================= -->
+
+                    <Button Text="🏨 Fazer uma hospedagem"
+                            Style="{StaticResource BotaoPadrao}"
+                            Clicked="OnContratarHotelClicked" />
+
+                </VerticalStackLayout>
+
+            </Frame>
 
         </VerticalStackLayout>
+
     </ScrollView>
+
 </ContentPage>
