@@ -1,315 +1,657 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelPepira.Views.Hospedagem"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#d8b952">
+             BackgroundColor="#F4EBD0">
 
     <ScrollView>
 
-        <VerticalStackLayout Padding="15"
+        <VerticalStackLayout Padding="18,24,18,30"
                              Spacing="18">
 
-            <!-- TÍTULO -->
-            <VerticalStackLayout Spacing="2">
 
-                <Label Text="Hotel Pepira"
-                       FontFamily="OswaldRegular"
-                       FontSize="42"
-                       TextColor="#5a6f22"
-                       HorizontalTextAlignment="Center"/>
+            <!-- ===================================================== -->
+            <!-- CABEÇALHO -->
+            <!-- ===================================================== -->
 
-                <Label Text="Faça seu Check-in"
-                       FontSize="18"
-                       TextColor="#743d00"
-                       HorizontalTextAlignment="Center"/>
+            <VerticalStackLayout Spacing="5">
+
+                <Label Text="POUSADA JACARÉ PEPIRA"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       CharacterSpacing="3"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
+
+                <Label Text="Sua hospedagem"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
+
+                <BoxView HeightRequest="2"
+                         WidthRequest="50"
+                         BackgroundColor="#E8D48A"
+                         HorizontalOptions="Center" />
+
+                <Label Text="Conforto, natureza e tranquilidade em Brotas"
+                       FontSize="14"
+                       TextColor="#777777"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,3,0,0" />
 
             </VerticalStackLayout>
 
+
+            <!-- ===================================================== -->
             <!-- CARROSSEL -->
+            <!-- ===================================================== -->
+
             <Frame Padding="0"
-       CornerRadius="28"
-       HasShadow="True"
-       BorderColor="#743d00"
-       HorizontalOptions="FillAndExpand"
-       VerticalOptions="Start">
+                   CornerRadius="24"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5"
+                   BackgroundColor="White"
+                   IsClippedToBounds="True">
 
-                <CarouselView HeightRequest="420"
-                  Loop="True"
-                  IndicatorView="indicador">
+                <Grid HeightRequest="360">
 
-                    <CarouselView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>hotel1.jpg</x:String>
-                            <x:String>hotel2.jpg</x:String>
-                            <x:String>brotas.jpg</x:String>
-                        </x:Array>
-                    </CarouselView.ItemsSource>
+                    <CarouselView Loop="True"
+                                  IndicatorView="indicador"
+                                  HorizontalOptions="Fill"
+                                  VerticalOptions="Fill">
 
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid HeightRequest="420">
+                        <CarouselView.ItemsSource>
 
-                                <Image Source="{Binding}"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Fill"
-                           VerticalOptions="Fill"/>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>hotel1.jpg</x:String>
+                                <x:String>hotel2.jpg</x:String>
+                                <x:String>brotas.jpg</x:String>
+                            </x:Array>
 
-                                <BoxView Color="Black"
-                             Opacity="0.15"
-                             HorizontalOptions="Fill"
-                             VerticalOptions="Fill"/>
+                        </CarouselView.ItemsSource>
 
-                            </Grid>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
 
-                </CarouselView>
+                        <CarouselView.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Grid>
+
+                                    <Image Source="{Binding}"
+                                           Aspect="AspectFill"
+                                           HorizontalOptions="Fill"
+                                           VerticalOptions="Fill" />
+
+                                    <!-- SOBREPOSIÇÃO -->
+
+                                    <BoxView Color="Black"
+                                             Opacity="0.18"
+                                             HorizontalOptions="Fill"
+                                             VerticalOptions="Fill" />
+
+
+                                    <!-- TEXTO SOBRE A IMAGEM -->
+
+                                    <VerticalStackLayout HorizontalOptions="Start"
+                                                         VerticalOptions="End"
+                                                         Padding="20"
+                                                         Spacing="4">
+
+                                        <Label Text="POUSADA JACARÉ PEPIRA"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               CharacterSpacing="2"
+                                               TextColor="#E8D48A" />
+
+                                        <Label Text="Uma experiência especial em Brotas"
+                                               FontSize="21"
+                                               FontAttributes="Bold"
+                                               TextColor="White" />
+
+                                    </VerticalStackLayout>
+
+                                </Grid>
+
+                            </DataTemplate>
+
+                        </CarouselView.ItemTemplate>
+
+                    </CarouselView>
+
+
+                    <!-- INDICADOR -->
+
+                    <IndicatorView x:Name="indicador"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                   Margin="0,0,0,12"
+                                   IndicatorColor="#D8D8D8"
+                                   SelectedIndicatorColor="#E8D48A" />
+
+                </Grid>
 
             </Frame>
 
-            <!-- INDICADOR -->
-            <IndicatorView x:Name="indicador"
-                           HorizontalOptions="Center"
-                           IndicatorColor="#c8c8c8"
-                           SelectedIndicatorColor="#743d00"/>
 
-            <!-- CARD PRINCIPAL -->
-            <Frame Padding="18"
-                   BackgroundColor="White"
+            <!-- ===================================================== -->
+            <!-- APRESENTAÇÃO -->
+            <!-- ===================================================== -->
+
+            <Frame BackgroundColor="White"
                    CornerRadius="20"
+                   Padding="18"
                    HasShadow="True"
-                   BorderColor="#d1c08d">
+                   BorderColor="#E4D8B5">
 
-                <VerticalStackLayout Spacing="18">
+                <VerticalStackLayout Spacing="8">
 
-                    <!-- HÓSPEDES -->
-                    <Frame CornerRadius="15"
-                           Padding="12"
-                           BackgroundColor="#f9f6ea"
-                           BorderColor="#e2d39c">
+                    <Label Text="Viva Brotas"
+                           FontSize="23"
+                           FontAttributes="Bold"
+                           TextColor="#5A6F22" />
 
-                        <VerticalStackLayout Spacing="12">
+                    <Label Text="Escolha sua acomodação, informe o período da estadia e confira o valor da diária."
+                           FontSize="14"
+                           TextColor="#666666"
+                           LineBreakMode="WordWrap" />
 
-                            <Label Text="Hóspedes"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   TextColor="#5a6f22"/>
-
-                            <Grid RowDefinitions="Auto,Auto"
-                                  ColumnDefinitions="*,Auto,Auto">
-
-                                <Label Grid.Row="0"
-                                       Grid.Column="0"
-                                       Text="Adultos"
-                                       VerticalOptions="Center"/>
-
-                                <Label Grid.Row="0"
-                                       Grid.Column="1"
-                                       Text="{Binding Value, Source={x:Reference stp_adulto}}"
-                                       FontAttributes="Bold"
-                                       Margin="0,0,10,0"/>
-
-                                <Stepper Grid.Row="0"
-                                         Grid.Column="2"
-                                         x:Name="stp_adulto"
-                                         Minimum="0"
-                                         Maximum="10"
-                                         Increment="1"/>
-
-                                <Label Grid.Row="1"
-                                       Grid.Column="0"
-                                       Text="Crianças"
-                                       VerticalOptions="Center"/>
-
-                                <Label Grid.Row="1"
-                                       Grid.Column="1"
-                                       Text="{Binding Value, Source={x:Reference stp_crianca}}"
-                                       FontAttributes="Bold"
-                                       Margin="0,0,10,0"/>
-
-                                <Stepper Grid.Row="1"
-                                         Grid.Column="2"
-                                         x:Name="stp_crianca"
-                                         Minimum="0"
-                                         Maximum="10"
-                                         Increment="1"/>
-
-                            </Grid>
-
-                        </VerticalStackLayout>
-
-                    </Frame>
-
-                    <!-- SUÍTES -->
-                    <Frame CornerRadius="15"
-                           Padding="12"
-                           BackgroundColor="#f9f6ea"
-                           BorderColor="#e2d39c">
-
-                        <VerticalStackLayout Spacing="10">
-
-                            <Label Text="Escolha sua Suíte"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   TextColor="#5a6f22"/>
-
-                            <Picker x:Name="pck_quarto"
-                                    Title="Selecione sua acomodação"
-                                    ItemDisplayBinding="{Binding Descricao}"
-                                    SelectedIndexChanged="pck_quarto_SelectedIndexChanged"
-                                    BackgroundColor="White"
-                                    TextColor="Black"/>
-
-                        </VerticalStackLayout>
-
-                    </Frame>
-
-                    <!-- DATAS -->
-                    <Frame CornerRadius="15"
-                           Padding="15"
-                           BackgroundColor="#f9f6ea"
-                           BorderColor="#e2d39c">
-
-                        <VerticalStackLayout Spacing="15">
-
-                            <Label Text="Período da Estadia"
-                                   FontAttributes="Bold"
-                                   FontSize="20"
-                                   TextColor="#5a6f22"/>
-
-                            <VerticalStackLayout Spacing="5">
-
-                                <Label Text="Check-in"
-                                       FontAttributes="Bold"
-                                       TextColor="#743d00"/>
-
-                                <DatePicker x:Name="dtpck_checkin"
-                                            Format="dd/MM/yyyy"
-                                            BackgroundColor="White"
-                                            TextColor="Black"/>
-
-                            </VerticalStackLayout>
-
-                            <VerticalStackLayout Spacing="5">
-
-                                <Label Text="Check-out"
-                                       FontAttributes="Bold"
-                                       TextColor="#743d00"/>
-
-                                <DatePicker x:Name="dtpck_checkout"
-                                            Format="dd/MM/yyyy"
-                                            BackgroundColor="White"
-                                            TextColor="Black"/>
-
-                            </VerticalStackLayout>
-
-                        </VerticalStackLayout>
-
-                    </Frame>
-
-                    <!-- CUPOM -->
-                    <Frame CornerRadius="15"
-                           Padding="12"
-                           BackgroundColor="#f9f6ea"
-                           BorderColor="#e2d39c">
-
-                        <VerticalStackLayout Spacing="10">
-
-                            <Label Text="Cupom de desconto"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   TextColor="#5a6f22"/>
-
-                            <Entry x:Name="txtCupom"
-                                   Placeholder="Digite seu cupom"
-                                   BackgroundColor="White"
-                                   TextColor="Black"/>
-
-                            <Button Text="Aplicar Cupom"
-                                    BackgroundColor="#5a6f22"
-                                    TextColor="White"
-                                    CornerRadius="12"
-                                    HeightRequest="50"
-                                    Clicked="OnAplicarCupomClicked"/>
-
-                        </VerticalStackLayout>
-
-                    </Frame>
-
-                    <!-- TOTAL -->
-                    <Frame CornerRadius="15"
-                           Padding="15"
-                           BackgroundColor="#743d00">
-
-                        <HorizontalStackLayout Spacing="10"
-                                               HorizontalOptions="Center">
-
-                            <Label Text="Valor Total:"
-                                   FontAttributes="Bold"
-                                   FontSize="22"
-                                   TextColor="White"/>
-
-                            <Label x:Name="lblTotal"
-                                   Text="R$ 299,90"
-                                   FontAttributes="Bold"
-                                   FontSize="22"
-                                   TextColor="#d8b952"/>
-
-                        </HorizontalStackLayout>
-
-                    </Frame>
-
-                    <!-- TEMA -->
-                    <Frame CornerRadius="15"
-                           Padding="12"
-                           BackgroundColor="#f9f6ea"
-                           BorderColor="#e2d39c">
-
-                        <HorizontalStackLayout Spacing="12">
-
-                            <Label Text="Modo Escuro"
-                                   VerticalOptions="Center"
-                                   FontAttributes="Bold"/>
-
-                            <Switch x:Name="switchTema"
-                                    Toggled="switchTema_Toggled"/>
-
-                        </HorizontalStackLayout>
-
-                    </Frame>
-
-                    <!-- BOTÕES -->
-                    <VerticalStackLayout Spacing="12">
-
-                        <Button Text="Entrar em contato"
-                                BackgroundColor="#5a6f22"
-                                TextColor="White"
-                                CornerRadius="15"
-                                HeightRequest="55"
-                                FontAttributes="Bold"
-                                Clicked="ContatoWhatsApp_Clicked"/>
-
-                        <Button Text="AVANÇAR"
-                                BackgroundColor="#743d00"
-                                TextColor="White"
-                                CornerRadius="15"
-                                HeightRequest="55"
-                                FontAttributes="Bold"
-                                Clicked="OnAvancarClicked"/>
-
-                        <Button Text="VOLTAR"
-                                BackgroundColor="#743d00"
-                                TextColor="White"
-                                CornerRadius="15"
-                                HeightRequest="50"
-                                Clicked="OnVoltarClicked"/>
-
-                    </VerticalStackLayout>
+                    <Label Text="A Pousada Jacaré Pepira oferece um ambiente acolhedor para você descansar e aproveitar a natureza."
+                           FontSize="13"
+                           TextColor="#888888"
+                           LineBreakMode="WordWrap" />
 
                 </VerticalStackLayout>
 
             </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- HÓSPEDES -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <VerticalStackLayout Spacing="2">
+
+                        <Label Text="Hóspedes"
+                               FontSize="21"
+                               FontAttributes="Bold"
+                               TextColor="#5A6F22" />
+
+                        <Label Text="Informe a quantidade de pessoas"
+                               FontSize="12"
+                               TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+
+                    <!-- ADULTOS -->
+
+                    <Frame BackgroundColor="#F4EBD0"
+                           CornerRadius="14"
+                           Padding="12"
+                           HasShadow="False"
+                           BorderColor="#E4D8B5">
+
+                        <Grid ColumnDefinitions="*,Auto,Auto"
+                              VerticalOptions="Center">
+
+                            <VerticalStackLayout Grid.Column="0"
+                                                 Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Adultos"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="#444444" />
+
+                                <Label Text="A partir de 12 anos"
+                                       FontSize="11"
+                                       TextColor="#888888" />
+
+                            </VerticalStackLayout>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Value, Source={x:Reference stp_adulto}}"
+                                   FontSize="17"
+                                   FontAttributes="Bold"
+                                   TextColor="#5A6F22"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,12,0" />
+
+                            <Stepper Grid.Column="2"
+                                     x:Name="stp_adulto"
+                                     Minimum="0"
+                                     Maximum="10"
+                                     Increment="1"
+                                     VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Frame>
+
+
+                    <!-- CRIANÇAS -->
+
+                    <Frame BackgroundColor="#F4EBD0"
+                           CornerRadius="14"
+                           Padding="12"
+                           HasShadow="False"
+                           BorderColor="#E4D8B5">
+
+                        <Grid ColumnDefinitions="*,Auto,Auto"
+                              VerticalOptions="Center">
+
+                            <VerticalStackLayout Grid.Column="0"
+                                                 Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Crianças"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="#444444" />
+
+                                <Label Text="Até 11 anos"
+                                       FontSize="11"
+                                       TextColor="#888888" />
+
+                            </VerticalStackLayout>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Value, Source={x:Reference stp_crianca}}"
+                                   FontSize="17"
+                                   FontAttributes="Bold"
+                                   TextColor="#5A6F22"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,12,0" />
+
+                            <Stepper Grid.Column="2"
+                                     x:Name="stp_crianca"
+                                     Minimum="0"
+                                     Maximum="10"
+                                     Increment="1"
+                                     VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Frame>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- ACOMODAÇÃO -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <VerticalStackLayout Spacing="2">
+
+                        <Label Text="Escolha sua acomodação"
+                               FontSize="21"
+                               FontAttributes="Bold"
+                               TextColor="#5A6F22" />
+
+                        <Label Text="Selecione a opção ideal para sua estadia"
+                               FontSize="12"
+                               TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+
+                    <Frame BackgroundColor="#F4EBD0"
+                           CornerRadius="14"
+                           Padding="4"
+                           HasShadow="False"
+                           BorderColor="#E4D8B5">
+
+                        <Picker x:Name="pck_quarto"
+                                Title="Selecione sua acomodação"
+                                ItemDisplayBinding="{Binding Descricao}"
+                                SelectedIndexChanged="pck_quarto_SelectedIndexChanged"
+                                BackgroundColor="Transparent"
+                                TextColor="#444444"
+                                TitleColor="#888888" />
+
+                    </Frame>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- PERÍODO -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <VerticalStackLayout Spacing="2">
+
+                        <Label Text="Período da estadia"
+                               FontSize="21"
+                               FontAttributes="Bold"
+                               TextColor="#5A6F22" />
+
+                        <Label Text="Quando você pretende se hospedar?"
+                               FontSize="12"
+                               TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+
+                    <!-- CHECK-IN -->
+
+                    <Frame BackgroundColor="#F4EBD0"
+                           CornerRadius="14"
+                           Padding="12"
+                           HasShadow="False"
+                           BorderColor="#E4D8B5">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label Text="CHECK-IN"
+                                   FontSize="11"
+                                   FontAttributes="Bold"
+                                   CharacterSpacing="1.5"
+                                   TextColor="#5A6F22" />
+
+                            <DatePicker x:Name="dtpck_checkin"
+                                        Format="dd/MM/yyyy"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#444444" />
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+
+                    <!-- CHECK-OUT -->
+
+                    <Frame BackgroundColor="#F4EBD0"
+                           CornerRadius="14"
+                           Padding="12"
+                           HasShadow="False"
+                           BorderColor="#E4D8B5">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label Text="CHECK-OUT"
+                                   FontSize="11"
+                                   FontAttributes="Bold"
+                                   CharacterSpacing="1.5"
+                                   TextColor="#5A6F22" />
+
+                            <DatePicker x:Name="dtpck_checkout"
+                                        Format="dd/MM/yyyy"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#444444" />
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- CUPOM -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="18"
+                   Padding="16"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <VerticalStackLayout Spacing="2">
+
+                        <Label Text="Tem um cupom?"
+                               FontSize="21"
+                               FontAttributes="Bold"
+                               TextColor="#5A6F22" />
+
+                        <Label Text="Digite seu código para receber seu desconto"
+                               FontSize="12"
+                               TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="8">
+
+                        <Frame Grid.Column="0"
+                               BackgroundColor="#F4EBD0"
+                               CornerRadius="13"
+                               Padding="12,0"
+                               HasShadow="False"
+                               BorderColor="#E4D8B5"
+                               HeightRequest="52">
+
+                            <Entry x:Name="txtCupom"
+                                   Placeholder="Ex.: BROTAS10"
+                                   PlaceholderColor="#999999"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#444444"
+                                   VerticalOptions="Center" />
+
+                        </Frame>
+
+
+                        <Button Grid.Column="1"
+                                Text="Aplicar"
+                                BackgroundColor="#5A6F22"
+                                TextColor="White"
+                                CornerRadius="13"
+                                HeightRequest="52"
+                                Padding="18,0"
+                                FontAttributes="Bold"
+                                Clicked="OnAplicarCupomClicked" />
+
+                    </Grid>
+
+
+                    <!-- AVISO DO CUPOM -->
+
+                    <Frame BackgroundColor="#FFF8DD"
+                           CornerRadius="12"
+                           Padding="12"
+                           HasShadow="False"
+                           BorderColor="#E8D48A">
+
+                        <HorizontalStackLayout Spacing="8">
+
+                            <Label Text="★"
+                                   FontSize="17"
+                                   TextColor="#5A6F22"
+                                   VerticalOptions="Center" />
+
+                            <Label Text="Use BROTAS10 e ganhe 10% de desconto."
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#5A6F22"
+                                   VerticalOptions="Center" />
+
+                        </HorizontalStackLayout>
+
+                    </Frame>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- TOTAL -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="20"
+                   Padding="18"
+                   BackgroundColor="#5A6F22"
+                   HasShadow="True"
+                   BorderColor="#5A6F22">
+
+                <VerticalStackLayout Spacing="5">
+
+                    <Label Text="VALOR DA HOSPEDAGEM"
+                           FontSize="11"
+                           FontAttributes="Bold"
+                           CharacterSpacing="2"
+                           TextColor="#E8D48A"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label x:Name="lblTotal"
+                           Text="R$ 0,00"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Valor estimado da acomodação selecionada"
+                           FontSize="11"
+                           TextColor="#E8E1C9"
+                           HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- TEMA -->
+            <!-- ===================================================== -->
+
+            <Frame CornerRadius="18"
+                   Padding="15"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <Grid ColumnDefinitions="*,Auto"
+                      VerticalOptions="Center">
+
+                    <VerticalStackLayout Grid.Column="0"
+                                         Spacing="2"
+                                         VerticalOptions="Center">
+
+                        <Label Text="Modo escuro"
+                               FontSize="15"
+                               FontAttributes="Bold"
+                               TextColor="#444444" />
+
+                        <Label Text="Altere a aparência do aplicativo"
+                               FontSize="11"
+                               TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+                    <Switch Grid.Column="1"
+                            x:Name="switchTema"
+                            Toggled="switchTema_Toggled"
+                            OnColor="#5A6F22"
+                            ThumbColor="#E8D48A"
+                            VerticalOptions="Center" />
+
+                </Grid>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- AÇÕES -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="10">
+
+
+                <!-- WHATSAPP -->
+
+                <Button Text="💬  Falar com a Pousada"
+                        BackgroundColor="#5A6F22"
+                        TextColor="White"
+                        CornerRadius="16"
+                        HeightRequest="56"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Clicked="ContatoWhatsApp_Clicked" />
+
+
+                <!-- AVANÇAR -->
+
+                <Button Text="Continuar com a reserva  →"
+                        BackgroundColor="#E8D48A"
+                        TextColor="#5A6F22"
+                        CornerRadius="16"
+                        HeightRequest="56"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Clicked="OnAvancarClicked" />
+
+
+                <!-- VOLTAR -->
+
+                <Button Text="←  Voltar"
+                        BackgroundColor="Transparent"
+                        TextColor="#5A6F22"
+                        BorderColor="#5A6F22"
+                        BorderWidth="1"
+                        CornerRadius="16"
+                        HeightRequest="50"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        Clicked="OnVoltarClicked" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ===================================================== -->
+            <!-- RODAPÉ -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="3"
+                                 Margin="0,2,0,5">
+
+                <Label Text="Pousada Jacaré Pepira"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalOptions="Center" />
+
+                <Label Text="Brotas • São Paulo"
+                       FontSize="11"
+                       TextColor="#888888"
+                       HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
 
         </VerticalStackLayout>
 

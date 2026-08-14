@@ -4,168 +4,889 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelPepira.Views.MainPage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#d8b952">
+             BackgroundColor="#F4EBD0">
+
+    <!-- ============================================================= -->
+    <!-- RECURSOS DA PÁGINA -->
+    <!-- ============================================================= -->
+
+    <ContentPage.Resources>
+
+        <Style x:Key="BotaoPadrao"
+               TargetType="Button">
+
+            <Setter Property="BackgroundColor"
+                    Value="#5A6F22" />
+
+            <Setter Property="TextColor"
+                    Value="White" />
+
+            <Setter Property="CornerRadius"
+                    Value="15" />
+
+            <Setter Property="HeightRequest"
+                    Value="55" />
+
+            <Setter Property="FontSize"
+                    Value="16" />
+
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+
+            <Setter Property="Padding"
+                    Value="15,0" />
+
+        </Style>
+
+    </ContentPage.Resources>
+
 
     <ScrollView>
 
-        <VerticalStackLayout Padding="20"
-                             Spacing="20">
+        <VerticalStackLayout Spacing="0">
 
-            <!-- ================================= -->
-            <!-- TÍTULO -->
-            <!-- ================================= -->
 
-            <Label Text="Hotel Pepira"
-                   FontSize="42"
-                   FontAttributes="Bold"
-                   TextColor="#5a6f22"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Center" />
+            <!-- ===================================================== -->
+            <!-- CABEÇALHO -->
+            <!-- ===================================================== -->
 
-            <!-- ================================= -->
-            <!-- SOBRE O HOTEL -->
-            <!-- ================================= -->
+            <Grid BackgroundColor="#5A6F22"
+                  Padding="24,36,24,30">
 
-            <Frame Style="{StaticResource CardStyle}">
+                <VerticalStackLayout Spacing="9">
 
-                <VerticalStackLayout Spacing="10">
-
-                    <Label Text="Sobre o Hotel"
-                           Style="{StaticResource TituloCard}" />
-
-                    <Label Text="O Hotel Pepira oferece conforto, luxo e uma experiência inesquecível para famílias, casais e viajantes."
-                           FontSize="16"
-                           TextColor="#333333"
-                           LineBreakMode="WordWrap" />
-
-                    <Label Text="✔ Piscina"
-                           FontSize="16" />
-
-                    <Label Text="✔ Restaurante"
-                           FontSize="16" />
-
-                    <Label Text="✔ Suítes Premium"
-                           FontSize="16" />
-
-                    <Label Text="✔ Vista Panorâmica"
-                           FontSize="16" />
-
-                </VerticalStackLayout>
-
-            </Frame>
-
-            <!-- ================================= -->
-            <!-- AVALIAÇÕES -->
-            <!-- ================================= -->
-
-            <Frame Style="{StaticResource CardStyle}">
-
-                <VerticalStackLayout Spacing="5">
-
-                    <Label Text="Avaliações"
-                           Style="{StaticResource TituloCard}" />
-
-                    <Label Text="★★★★★"
-                           FontSize="30"
-                           TextColor="Gold"
-                           HorizontalOptions="Center" />
-
-                    <Label Text="4.9 de 5 estrelas"
-                           FontSize="16"
-                           HorizontalOptions="Center" />
-
-                </VerticalStackLayout>
-
-            </Frame>
-
-            <!-- ================================= -->
-            <!-- LOCALIZAÇÃO -->
-            <!-- ================================= -->
-
-            <Frame Style="{StaticResource CardStyle}">
-
-                <VerticalStackLayout Spacing="10">
-
-                    <Label Text="Localização"
-                           Style="{StaticResource TituloCard}" />
-
-                    <Label Text="📍 Rua Joaquim Dias Ramos, 75&#10;Bairro do Patrimônio&#10;Brotas - SP&#10;CEP 17390-000"
-                           FontSize="16"
-                           TextColor="#333333"
-                           LineBreakMode="WordWrap" />
-
-                    <Button Text="📍 Ver localização"
-                            Style="{StaticResource BotaoPadrao}"
-                            Clicked="OnLocalizacaoClicked" />
-
-                </VerticalStackLayout>
-
-            </Frame>
-
-            <!-- ================================= -->
-            <!-- NAVEGAÇÃO -->
-            <!-- ================================= -->
-
-            <Button Text="🏨 Fazer Check-in"
-                    Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnHospedagemClicked" />
-
-            <Button Text="⭐ Avaliações"
-                    Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnAvaliacoesClicked" />
-
-            <Button Text="📞 Contato"
-                    Style="{StaticResource BotaoPadrao}"
-                    Clicked="OnContatoClicked" />
-
-            <!-- ================================= -->
-            <!-- ÁREA DO APP / API -->
-            <!-- ================================= -->
-
-            <Frame Style="{StaticResource CardStyle}"
-                   Margin="0,10,0,0">
-
-                <VerticalStackLayout Spacing="20">
-
-                    <Label Text="AppHotel"
-                           FontSize="32"
+                    <Label Text="POUSADA"
+                           FontSize="13"
                            FontAttributes="Bold"
-                           TextColor="#5a6f22"
-                           HorizontalOptions="Center" />
+                           TextColor="#E8D48A"
+                           HorizontalOptions="Center"
+                           CharacterSpacing="4" />
 
-                    <Label Text="Hotel: Hospedagem"
-                           FontSize="18"
-                           TextColor="#333333"
-                           HorizontalOptions="Center" />
+                    <Label Text="Jacaré Pepira"
+                           FontSize="40"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
 
-                    <!-- ================================= -->
-                    <!-- CLIMA -->
-                    <!-- ================================= -->
+                    <BoxView HeightRequest="2"
+                             WidthRequest="55"
+                             BackgroundColor="#E8D48A"
+                             HorizontalOptions="Center" />
 
-                    <Button Text="⛅ Consultar clima"
-                            Style="{StaticResource BotaoPadrao}"
-                            Clicked="OnConsultarClimaClicked" />
+                    <Label Text="Brotas • SP"
+                           FontSize="14"
+                           TextColor="#F4EBD0"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
 
-                    <Label x:Name="lblClima"
-                           Text="Clique no botão para consultar a API"
-                           FontSize="18"
-                           TextColor="#333333"
-                           HorizontalTextAlignment="Center"
-                           HorizontalOptions="Fill"
-                           LineBreakMode="WordWrap"
-                           Margin="0,5,0,0" />
-
-                    <!-- ================================= -->
-                    <!-- HOSPEDAGEM -->
-                    <!-- ================================= -->
-
-                    <Button Text="🏨 Fazer uma hospedagem"
-                            Style="{StaticResource BotaoPadrao}"
-                            Clicked="OnContratarHotelClicked" />
+                    <Label Text="Natureza • Tranquilidade • Aventura"
+                           FontSize="13"
+                           TextColor="#F4EBD0"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
 
                 </VerticalStackLayout>
 
-            </Frame>
+            </Grid>
+
+
+            <!-- ===================================================== -->
+            <!-- CONTEÚDO -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Padding="18,22,18,30"
+                                 Spacing="16">
+
+
+                <!-- ================================================= -->
+                <!-- SOBRE A POUSADA -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="🏡"
+                                   FontSize="26"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Sobre a Pousada"
+                                       FontSize="23"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Pousada Jacaré Pepira"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <Label Text="Bem-vindo à Pousada Jacaré Pepira! Localizada no Alto da Serra, no distrito de São Sebastião da Serra (Patrimônio), a pousada fica a cerca de 22 km do centro de Brotas."
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+
+                        <Label Text="Em meio à natureza e próxima às belas cachoeiras do chamado Circuito das Cachoeiras e à represa do rio Jacaré Pepira, é um lugar tranquilo e silencioso para descansar e aproveitar as aventuras de Brotas."
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- DESTAQUE -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="#5A6F22"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="7">
+
+                        <Label Text="UMA EXPERIÊNCIA EM MEIO À NATUREZA"
+                               FontSize="11"
+                               FontAttributes="Bold"
+                               TextColor="#E8D48A"
+                               HorizontalOptions="Center"
+                               CharacterSpacing="1.5" />
+
+                        <Label Text="Conforto, descanso e aventura"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label Text="Um ambiente tranquilo para recarregar as energias depois de aproveitar Brotas."
+                               FontSize="13"
+                               TextColor="#F4EBD0"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- ACOMODAÇÕES -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="🛏️"
+                                   FontSize="25"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Acomodações"
+                                       FontSize="23"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Conforto para sua estadia"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <Label Text="A pousada dispõe de 8 suítes avarandadas, equipadas para proporcionar conforto durante a hospedagem."
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+
+                        <Label Text="As suítes possuem decoração com móveis rústicos talhados em madeira maciça por artesãos locais."
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+
+                        <Grid ColumnDefinitions="*,*"
+                              RowDefinitions="Auto,Auto"
+                              ColumnSpacing="10"
+                              RowSpacing="10"
+                              Margin="0,4,0,0">
+
+
+                            <Frame Grid.Row="0"
+                                   Grid.Column="0"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="🛏️"
+                                           FontSize="22" />
+
+                                    <Label Text="8 suítes"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Avarandadas"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+
+                            <Frame Grid.Row="0"
+                                   Grid.Column="1"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="☕"
+                                           FontSize="22" />
+
+                                    <Label Text="Café da manhã"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Incluso na diária"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+
+                            <Frame Grid.Row="1"
+                                   Grid.Column="0"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="🏊"
+                                           FontSize="22" />
+
+                                    <Label Text="Piscina"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Área para relaxar"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+
+                            <Frame Grid.Row="1"
+                                   Grid.Column="1"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="📶"
+                                           FontSize="22" />
+
+                                    <Label Text="Wi-Fi grátis"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Internet disponível"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- EXPERIÊNCIA -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="🌿"
+                                   FontSize="26"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Momentos de descanso"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Aproveite o ambiente da pousada"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <Label Text="Depois de um dia de aventuras, você pode relaxar nas redes da varanda com vista para a piscina e aproveitar o ambiente tranquilo e silencioso da serra."
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+
+                        <Grid ColumnDefinitions="*,*"
+                              ColumnSpacing="10">
+
+                            <Frame Grid.Column="0"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="🌄"
+                                           FontSize="22" />
+
+                                    <Label Text="Varanda"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Redes para descanso"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+
+                            <Frame Grid.Column="1"
+                                   BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="13"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="🚗"
+                                           FontSize="22" />
+
+                                    <Label Text="Estacionamento"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Disponível"
+                                           FontSize="11"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- AVENTURA -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="#5A6F22"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="9">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="🧗"
+                                   FontSize="27"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Aventuras em Brotas"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       TextColor="White" />
+
+                                <Label Text="Do descanso à adrenalina"
+                                       FontSize="12"
+                                       TextColor="#F4EBD0" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A"
+                                 Margin="0,3,0,2" />
+
+
+                        <Label Text="A pousada realiza o agendamento de passeios de aventura, dos mais leves aos mais radicais, em parceria com a operadora H2Omem."
+                               FontSize="14"
+                               TextColor="#F4EBD0"
+                               LineBreakMode="WordWrap" />
+
+
+                        <Label Text="Brotas oferece atividades como rafting, canionismo, cachoeirismo, arvorismo, tirolesa, bóia-cross, trilhas e outras experiências em meio à natureza."
+                               FontSize="13"
+                               TextColor="#F4EBD0"
+                               LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- LOCALIZAÇÃO -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <!-- TÍTULO -->
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="📍"
+                                   FontSize="26"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Onde estamos"
+                                       FontSize="23"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Alto da Serra • Patrimônio"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <!-- ENDEREÇO -->
+
+                        <Frame BackgroundColor="#F4EBD0"
+                               CornerRadius="14"
+                               Padding="15"
+                               HasShadow="False"
+                               BorderColor="#E4D8B5">
+
+                            <VerticalStackLayout Spacing="5">
+
+                                <Label Text="📍  Rua Joaquim Dias Ramos, 75"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="#444444" />
+
+                                <Label Text="Bairro do Patrimônio"
+                                       FontSize="14"
+                                       TextColor="#555555" />
+
+                                <Label Text="Brotas - SP"
+                                       FontSize="14"
+                                       TextColor="#555555" />
+
+                                <Label Text="CEP 17390-000"
+                                       FontSize="13"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </Frame>
+
+
+                        <!-- ================================================= -->
+                        <!-- MAPA -->
+                        <!-- ================================================= -->
+
+                        <Frame BackgroundColor="White"
+                               CornerRadius="16"
+                               Padding="0"
+                               HasShadow="True"
+                               BorderColor="#E4D8B5"
+                               IsClippedToBounds="True"
+                               HeightRequest="300">
+
+                            <WebView x:Name="webMapa"
+                                     Source="https://www.google.com/maps/search/?api=1&amp;query=Rua+Joaquim+Dias+Ramos+75+Brotas+SP+17390-000"
+                                     HorizontalOptions="Fill"
+                                     VerticalOptions="Fill" />
+
+                        </Frame>
+
+
+                        <!-- LEGENDA -->
+
+                        <HorizontalStackLayout Spacing="8"
+                                               HorizontalOptions="Center">
+
+                            <Label Text="📍"
+                                   FontSize="18"
+                                   VerticalOptions="Center" />
+
+                            <Label Text="Pousada Jacaré Pepira"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="#5A6F22"
+                                   VerticalOptions="Center" />
+
+                        </HorizontalStackLayout>
+
+
+                        <Label Text="A pousada fica a aproximadamente 22 km do centro de Brotas, próxima ao Circuito das Cachoeiras e à represa do rio Jacaré Pepira."
+                               FontSize="13"
+                               TextColor="#777777"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap" />
+
+
+                        <!-- ABRIR MAPA -->
+
+                        <Button Text="📍  Abrir localização no mapa"
+                                Style="{StaticResource BotaoPadrao}"
+                                Clicked="OnLocalizacaoClicked" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- CONTATO -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <VerticalStackLayout Spacing="13">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="📞"
+                                   FontSize="26"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="1"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Entre em contato"
+                                       FontSize="23"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Fale com a Pousada Jacaré Pepira"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <Frame BackgroundColor="#F4EBD0"
+                               CornerRadius="12"
+                               Padding="15"
+                               HasShadow="False"
+                               BorderColor="#E4D8B5">
+
+                            <VerticalStackLayout Spacing="7">
+
+                                <Label Text="☎  (14) 3653-6243"
+                                       FontSize="15"
+                                       TextColor="#444444" />
+
+                                <Label Text="📱  (14) 99162-4478"
+                                       FontSize="15"
+                                       TextColor="#444444" />
+
+                                <Label Text="📱  (14) 99111-6881"
+                                       FontSize="15"
+                                       TextColor="#444444" />
+
+                            </VerticalStackLayout>
+
+                        </Frame>
+
+
+                        <Button Text="📞  Entrar em Contato"
+                                Style="{StaticResource BotaoPadrao}"
+                                Clicked="OnContatoClicked" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- MENU PRINCIPAL -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout Spacing="4"
+                                     Margin="4,3,4,0">
+
+                    <Label Text="O que você deseja fazer?"
+                           FontSize="21"
+                           FontAttributes="Bold"
+                           TextColor="#5A6F22" />
+
+                    <Label Text="Escolha uma opção para continuar"
+                           FontSize="13"
+                           TextColor="#777777" />
+
+                </VerticalStackLayout>
+
+
+                <Button Text="🏨  Fazer Check-in"
+                        Style="{StaticResource BotaoPadrao}"
+                        Clicked="OnHospedagemClicked" />
+
+
+                <Button Text="⭐  Ver Avaliações"
+                        Style="{StaticResource BotaoPadrao}"
+                        Clicked="OnAvaliacoesClicked" />
+
+
+                <!-- ================================================= -->
+                <!-- CLIMA -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5"
+                       Margin="0,4,0,0">
+
+                    <VerticalStackLayout Spacing="13">
+
+                        <HorizontalStackLayout Spacing="10">
+
+                            <Label Text="☀️"
+                                   FontSize="27"
+                                   VerticalOptions="Center" />
+
+                            <VerticalStackLayout Spacing="0"
+                                                 VerticalOptions="Center">
+
+                                <Label Text="Clima em Brotas"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Consulte as condições atuais"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <Button Text="⛅  Consultar clima"
+                                Style="{StaticResource BotaoPadrao}"
+                                Clicked="OnConsultarClimaClicked" />
+
+
+                        <Frame BackgroundColor="#F4EBD0"
+                               CornerRadius="12"
+                               Padding="15"
+                               HasShadow="False"
+                               BorderColor="#E4D8B5">
+
+                            <Label x:Name="lblClima"
+                                   Text="Clique no botão acima para consultar o clima atual."
+                                   FontSize="15"
+                                   TextColor="#444444"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Fill"
+                                   LineBreakMode="WordWrap" />
+
+                        </Frame>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- RESERVA -->
+                <!-- ================================================= -->
+
+                <Frame BackgroundColor="#5A6F22"
+                       CornerRadius="18"
+                       Padding="20"
+                       HasShadow="True"
+                       Margin="0,3,0,0">
+
+                    <VerticalStackLayout Spacing="9">
+
+                        <Label Text="Sua experiência em Brotas começa aqui"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label Text="Hospede-se na Pousada Jacaré Pepira e aproveite a natureza, o descanso e as aventuras da região."
+                               FontSize="13"
+                               TextColor="#F4EBD0"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap" />
+
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A"
+                                 Margin="18,2,18,2" />
+
+
+                        <Button Text="🏨  Fazer uma hospedagem"
+                                Style="{StaticResource BotaoPadrao}"
+                                Clicked="OnContratarHotelClicked"
+                                Margin="0,4,0,0" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- RODAPÉ -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout Spacing="4"
+                                     Margin="0,7,0,4">
+
+                    <Label Text="Pousada Jacaré Pepira"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="#5A6F22"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Brotas • São Paulo"
+                           FontSize="12"
+                           TextColor="#777777"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Natureza, descanso e aventura"
+                           FontSize="11"
+                           TextColor="#999999"
+                           HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
+
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
 

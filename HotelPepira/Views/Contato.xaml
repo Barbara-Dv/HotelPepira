@@ -1,26 +1,388 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HotelPepira.Views.Contato">
+             x:Class="HotelPepira.Views.Contato"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F4EBD0">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <ScrollView>
 
-        <Label Text="Contato"
-               FontSize="35"
-               FontAttributes="Bold"/>
+        <VerticalStackLayout Padding="18,24,18,30"
+                             Spacing="18">
 
-        <Button Text="📞 Telefone"
-                Clicked="OnTelefoneClicked"/>
 
-        <Button Text="💬 WhatsApp"
-                Clicked="OnWhatsAppClicked"/>
+            <!-- ===================================================== -->
+            <!-- CABEÇALHO -->
+            <!-- ===================================================== -->
 
-        <Button Text="🌐 Site Oficial"
-                Clicked="OnSiteClicked"/>
+            <VerticalStackLayout Spacing="5">
 
-        <Button Text="Voltar"
-        BackgroundColor="#5a6f22"
-        TextColor="White"
-        Clicked="OnVoltarClicked"/>
+                <Label Text="POUSADA JACARÉ PEPIRA"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       CharacterSpacing="3"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
 
-    </VerticalStackLayout>
+                <Label Text="Entre em contato"
+                       FontSize="34"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
+
+                <BoxView HeightRequest="2"
+                         WidthRequest="50"
+                         BackgroundColor="#E8D48A"
+                         HorizontalOptions="Center" />
+
+                <Label Text="Estamos à disposição para ajudar"
+                       FontSize="14"
+                       TextColor="#777777"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,3,0,0" />
+
+            </VerticalStackLayout>
+
+
+            <!-- ===================================================== -->
+            <!-- DESTAQUE -->
+            <!-- ===================================================== -->
+
+            <Frame BackgroundColor="#5A6F22"
+                   CornerRadius="22"
+                   Padding="20"
+                   HasShadow="True"
+                   BorderColor="#5A6F22">
+
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="🌿"
+                           FontSize="34"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Pousada Jacaré Pepira"
+                           FontSize="23"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Brotas • São Paulo"
+                           FontSize="14"
+                           TextColor="#E8D48A"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Fale conosco para consultar disponibilidade, valores e informações sobre sua hospedagem."
+                           FontSize="13"
+                           TextColor="#F4EBD0"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap"
+                           Margin="0,5,0,0" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- CONTATOS -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="12">
+
+                <Label Text="Fale conosco"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       Margin="2,0,0,0" />
+
+
+                <!-- TELEFONE -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="16"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          ColumnSpacing="14">
+
+                        <Frame Grid.Column="0"
+                               WidthRequest="52"
+                               HeightRequest="52"
+                               CornerRadius="14"
+                               Padding="0"
+                               BackgroundColor="#F4EBD0"
+                               HasShadow="False"
+                               BorderColor="#E8D48A">
+
+                            <Label Text="📞"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+
+                        </Frame>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2"
+                                             VerticalOptions="Center">
+
+                            <Label Text="Telefone"
+                                   FontSize="12"
+                                   TextColor="#888888" />
+
+                            <Label Text="(14) 3653-6243"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#444444" />
+
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="28"
+                               TextColor="#5A6F22"
+                               VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTelefoneClicked" />
+                    </Frame.GestureRecognizers>
+
+                </Frame>
+
+
+                <!-- WHATSAPP -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="16"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          ColumnSpacing="14">
+
+                        <Frame Grid.Column="0"
+                               WidthRequest="52"
+                               HeightRequest="52"
+                               CornerRadius="14"
+                               Padding="0"
+                               BackgroundColor="#F4EBD0"
+                               HasShadow="False"
+                               BorderColor="#E8D48A">
+
+                            <Label Text="💬"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+
+                        </Frame>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2"
+                                             VerticalOptions="Center">
+
+                            <Label Text="WhatsApp"
+                                   FontSize="12"
+                                   TextColor="#888888" />
+
+                            <Label Text="Fale diretamente com a pousada"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="#444444" />
+
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="28"
+                               TextColor="#5A6F22"
+                               VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnWhatsAppClicked" />
+                    </Frame.GestureRecognizers>
+
+                </Frame>
+
+
+                <!-- SITE -->
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="16"
+                       HasShadow="True"
+                       BorderColor="#E4D8B5">
+
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          ColumnSpacing="14">
+
+                        <Frame Grid.Column="0"
+                               WidthRequest="52"
+                               HeightRequest="52"
+                               CornerRadius="14"
+                               Padding="0"
+                               BackgroundColor="#F4EBD0"
+                               HasShadow="False"
+                               BorderColor="#E8D48A">
+
+                            <Label Text="🌐"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+
+                        </Frame>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2"
+                                             VerticalOptions="Center">
+
+                            <Label Text="Site oficial"
+                                   FontSize="12"
+                                   TextColor="#888888" />
+
+                            <Label Text="jacarepepira.com.br"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="#444444" />
+
+                        </VerticalStackLayout>
+
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="28"
+                               TextColor="#5A6F22"
+                               VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSiteClicked" />
+                    </Frame.GestureRecognizers>
+
+                </Frame>
+
+            </VerticalStackLayout>
+
+
+            <!-- ===================================================== -->
+            <!-- RESERVAS -->
+            <!-- ===================================================== -->
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="18"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Quer fazer uma reserva?"
+                           FontSize="21"
+                           FontAttributes="Bold"
+                           TextColor="#5A6F22"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Entre em contato pelo WhatsApp para consultar disponibilidade, valores e condições da hospedagem."
+                           FontSize="13"
+                           TextColor="#777777"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap" />
+
+                    <Button Text="💬  Falar pelo WhatsApp"
+                            BackgroundColor="#5A6F22"
+                            TextColor="White"
+                            CornerRadius="16"
+                            HeightRequest="55"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            Clicked="OnWhatsAppClicked"
+                            Margin="0,5,0,0" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- LOCALIZAÇÃO -->
+            <!-- ===================================================== -->
+
+            <Frame BackgroundColor="#FFF8DD"
+                   CornerRadius="18"
+                   Padding="16"
+                   HasShadow="False"
+                   BorderColor="#E8D48A">
+
+                <HorizontalStackLayout Spacing="12">
+
+                    <Label Text="📍"
+                           FontSize="25"
+                           VerticalOptions="Center" />
+
+                    <VerticalStackLayout Spacing="2"
+                                         VerticalOptions="Center">
+
+                        <Label Text="Localização"
+                               FontSize="12"
+                               TextColor="#888888" />
+
+                        <Label Text="Brotas - São Paulo"
+                               FontSize="15"
+                               FontAttributes="Bold"
+                               TextColor="#5A6F22" />
+
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- VOLTAR -->
+            <!-- ===================================================== -->
+
+            <Button Text="←  Voltar"
+                    BackgroundColor="Transparent"
+                    TextColor="#5A6F22"
+                    BorderColor="#5A6F22"
+                    BorderWidth="1"
+                    CornerRadius="16"
+                    HeightRequest="52"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    Clicked="OnVoltarClicked" />
+
+
+            <!-- ===================================================== -->
+            <!-- RODAPÉ -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="3"
+                                 Margin="0,0,0,5">
+
+                <Label Text="Pousada Jacaré Pepira"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalOptions="Center" />
+
+                <Label Text="Brotas • São Paulo"
+                       FontSize="11"
+                       TextColor="#888888"
+                       HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
 </ContentPage>

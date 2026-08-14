@@ -1,144 +1,443 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HotelPepira.Views.DetalhesSuite"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#d8b952">
+             BackgroundColor="#F4EBD0">
 
     <ScrollView>
 
-        <VerticalStackLayout Padding="18"
-                             Spacing="20">
+        <VerticalStackLayout Spacing="18"
+                             Padding="18,24,18,30">
 
-            <!-- TÍTULO DA PÁGINA -->
-            <VerticalStackLayout Spacing="2">
+
+            <!-- ===================================================== -->
+            <!-- CABEÇALHO -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="5">
+
+                <Label Text="SUA ACOMODAÇÃO"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       CharacterSpacing="3"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
 
                 <Label Text="Detalhes da Suíte"
-                       FontFamily="OswaldRegular"
-                       FontSize="36"
-                       TextColor="#5a6f22"
-                       HorizontalTextAlignment="Center"/>
+                       FontSize="34"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalTextAlignment="Center" />
 
-                <Label Text="Confira as informações da hospedagem"
-                       FontSize="16"
-                       TextColor="#743d00"
-                       HorizontalTextAlignment="Center"/>
+                <BoxView HeightRequest="2"
+                         WidthRequest="50"
+                         BackgroundColor="#E8D48A"
+                         HorizontalOptions="Center" />
+
+                <Label Text="Conforto para aproveitar Brotas"
+                       FontSize="14"
+                       TextColor="#777777"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,3,0,0" />
 
             </VerticalStackLayout>
 
-            <!-- CARD -->
+
+            <!-- ===================================================== -->
+            <!-- CARD PRINCIPAL -->
+            <!-- ===================================================== -->
+
             <Frame BackgroundColor="White"
-                   CornerRadius="20"
+                   CornerRadius="22"
                    Padding="0"
                    HasShadow="True"
-                   BorderColor="#d1c08d">
+                   BorderColor="#E4D8B5">
 
-                <VerticalStackLayout Spacing="15">
+                <VerticalStackLayout Spacing="0">
 
+
+                    <!-- ================================================= -->
                     <!-- IMAGEM -->
-                    <Grid HeightRequest="240">
+                    <!-- ================================================= -->
+
+                    <Grid HeightRequest="260">
 
                         <Image x:Name="imgSuite"
-                               Aspect="AspectFill"/>
+                               Aspect="AspectFill" />
 
-                        <!-- SOBREPOSIÇÃO -->
-                        <Grid BackgroundColor="#55000000"/>
 
-                        <!-- VALOR SOBRE A IMAGEM -->
-                        <Frame BackgroundColor="#743d00"
-                               CornerRadius="15"
-                               Padding="12,6"
-                               HorizontalOptions="End"
+                        <!-- ESCURECIMENTO SUAVE -->
+
+                        <Grid BackgroundColor="#55000000" />
+
+
+                        <!-- ETIQUETA -->
+
+                        <Frame BackgroundColor="#5A6F22"
+                               CornerRadius="14"
+                               Padding="13,7"
+                               HasShadow="False"
+                               HorizontalOptions="Start"
                                VerticalOptions="Start"
                                Margin="15">
 
-                            <Label x:Name="lblValor"
-                                   FontSize="20"
+                            <Label Text="POUSADA JACARÉ PEPIRA"
+                                   FontSize="11"
                                    FontAttributes="Bold"
-                                   TextColor="#d8b952"/>
+                                   CharacterSpacing="1"
+                                   TextColor="#E8D48A" />
+
+                        </Frame>
+
+
+                        <!-- PREÇO -->
+
+                        <Frame BackgroundColor="#5A6F22"
+                               CornerRadius="15"
+                               Padding="14,8"
+                               HasShadow="False"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="15">
+
+                            <VerticalStackLayout Spacing="0">
+
+                                <Label Text="DIÁRIA"
+                                       FontSize="10"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="1"
+                                       TextColor="#E8D48A"
+                                       HorizontalTextAlignment="Center" />
+
+                                <Label x:Name="lblValor"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       HorizontalTextAlignment="Center" />
+
+                            </VerticalStackLayout>
 
                         </Frame>
 
                     </Grid>
 
-                    <!-- CONTEÚDO -->
-                    <VerticalStackLayout Padding="18"
-                                         Spacing="15">
+
+                    <!-- ================================================= -->
+                    <!-- INFORMAÇÕES -->
+                    <!-- ================================================= -->
+
+                    <VerticalStackLayout Padding="20"
+                                         Spacing="16">
+
 
                         <!-- TÍTULO -->
-                        <Label x:Name="lblTitulo"
-                               FontSize="30"
-                               FontAttributes="Bold"
-                               TextColor="#5a6f22"
-                               HorizontalTextAlignment="Center"/>
 
-                        <!-- DESCRIÇÃO -->
-                        <Label x:Name="lblDescricao"
-                               FontSize="17"
-                               TextColor="#5a6f22"
-                               LineHeight="1.4"/>
+                        <VerticalStackLayout Spacing="5">
 
-                        <!-- DIVISOR -->
-                        <BoxView HeightRequest="1"
-                                 BackgroundColor="#e2d39c"/>
-
-                        <!-- BENEFÍCIOS -->
-                        <VerticalStackLayout Spacing="10">
-
-                            <Label Text="Benefícios inclusos"
+                            <Label x:Name="lblTitulo"
+                                   FontSize="28"
                                    FontAttributes="Bold"
-                                   FontSize="20"
-                                   TextColor="#743d00"/>
+                                   TextColor="#5A6F22"
+                                   HorizontalTextAlignment="Center" />
 
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Wi-Fi grátis"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Café da manhã incluso"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Ar-condicionado"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Serviço de quarto"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Piscina liberada"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="✔"
-                                       TextColor="#5a6f22"
-                                       FontSize="18"/>
-                                <Label Text="Estacionamento gratuito"
-                                       FontSize="16"/>
-                            </HorizontalStackLayout>
+                            <BoxView HeightRequest="2"
+                                     WidthRequest="40"
+                                     BackgroundColor="#E8D48A"
+                                     HorizontalOptions="Center" />
 
                         </VerticalStackLayout>
+
+
+                        <!-- DESCRIÇÃO -->
+
+                        <Label x:Name="lblDescricao"
+                               FontSize="15"
+                               TextColor="#444444"
+                               LineBreakMode="WordWrap" />
+
+
+                        <!-- ================================================= -->
+                        <!-- DESTAQUE -->
+                        <!-- ================================================= -->
+
+                        <Frame BackgroundColor="#F4EBD0"
+                               CornerRadius="14"
+                               Padding="15"
+                               HasShadow="False"
+                               BorderColor="#E4D8B5">
+
+                            <HorizontalStackLayout Spacing="12">
+
+                                <Label Text="🌿"
+                                       FontSize="24"
+                                       VerticalOptions="Center" />
+
+                                <VerticalStackLayout Spacing="2"
+                                                     VerticalOptions="Center">
+
+                                    <Label Text="Uma estadia em meio à natureza"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#5A6F22" />
+
+                                    <Label Text="Descanse e aproveite a tranquilidade de Brotas."
+                                           FontSize="12"
+                                           TextColor="#777777" />
+
+                                </VerticalStackLayout>
+
+                            </HorizontalStackLayout>
+
+                        </Frame>
+
+
+                        <!-- ================================================= -->
+                        <!-- DIVISOR -->
+                        <!-- ================================================= -->
+
+                        <BoxView HeightRequest="1"
+                                 BackgroundColor="#E8D48A" />
+
+
+                        <!-- ================================================= -->
+                        <!-- COMODIDADES -->
+                        <!-- ================================================= -->
+
+                        <VerticalStackLayout Spacing="12">
+
+                            <VerticalStackLayout Spacing="2">
+
+                                <Label Text="O que está incluso"
+                                       FontSize="21"
+                                       FontAttributes="Bold"
+                                       TextColor="#5A6F22" />
+
+                                <Label Text="Comodidades da acomodação"
+                                       FontSize="12"
+                                       TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+
+                            <!-- AR-CONDICIONADO -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="❄️"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="Ar-condicionado"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- TV -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="📺"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="TV digital"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- FRIGOBAR -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="🧊"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="Frigobar"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- WI-FI -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="📶"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="Wi-Fi gratuito"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- ROUPA DE CAMA -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="🛏️"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="Roupa de cama"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- TOALHAS -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="🛁"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="Toalhas de banho"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#444444"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+
+                            <!-- CAFÉ DA MANHÃ -->
+
+                            <Frame BackgroundColor="#F4EBD0"
+                                   CornerRadius="12"
+                                   Padding="12"
+                                   HasShadow="False"
+                                   BorderColor="#E4D8B5">
+
+                                <HorizontalStackLayout Spacing="12">
+
+                                    <Label Text="☕"
+                                           FontSize="22"
+                                           VerticalOptions="Center" />
+
+                                    <VerticalStackLayout Spacing="1"
+                                                         VerticalOptions="Center">
+
+                                        <Label Text="Café da manhã"
+                                               FontSize="15"
+                                               FontAttributes="Bold"
+                                               TextColor="#444444" />
+
+                                        <Label Text="Incluso na diária"
+                                               FontSize="11"
+                                               TextColor="#777777" />
+
+                                    </VerticalStackLayout>
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- ================================================= -->
+                        <!-- ÁREA DA POUSADA -->
+                        <!-- ================================================= -->
+
+                        <Frame BackgroundColor="#5A6F22"
+                               CornerRadius="15"
+                               Padding="16"
+                               HasShadow="False">
+
+                            <VerticalStackLayout Spacing="7">
+
+                                <Label Text="ÁREA DA POUSADA"
+                                       FontSize="11"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="2"
+                                       TextColor="#E8D48A" />
+
+                                <Label Text="Piscina • Estacionamento • Natureza"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="White" />
+
+                                <Label Text="Aproveite os espaços da Pousada Jacaré Pepira para descansar depois das aventuras de Brotas."
+
+                                       FontSize="12"
+                                       TextColor="#F4EBD0"
+                                       LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                        </Frame>
+
 
                     </VerticalStackLayout>
 
@@ -146,29 +445,80 @@
 
             </Frame>
 
-            <!-- BOTÕES -->
-            <VerticalStackLayout Spacing="12">
 
-                <!-- RESERVAR -->
-                <Button Text="Reservar Agora"
-                        BackgroundColor="#743d00"
-                        TextColor="White"
-                        CornerRadius="18"
-                        HeightRequest="58"
-                        FontAttributes="Bold"
-                        FontSize="18"
-                        Clicked="OnReservarClicked"/>
+            <!-- ===================================================== -->
+            <!-- ÁREA DE RESERVA -->
+            <!-- ===================================================== -->
 
-                <!-- VOLTAR -->
-                <Button Text="Voltar"
-                        BackgroundColor="#5a6f22"
-                        TextColor="White"
-                        CornerRadius="18"
-                        HeightRequest="52"
-                        FontAttributes="Bold"
-                        Clicked="OnVoltarClicked"/>
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="18"
+                   HasShadow="True"
+                   BorderColor="#E4D8B5">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Pronto para reservar?"
+                           FontSize="21"
+                           FontAttributes="Bold"
+                           TextColor="#5A6F22"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Garanta sua estadia na Pousada Jacaré Pepira."
+
+                           FontSize="13"
+                           TextColor="#777777"
+                           HorizontalTextAlignment="Center" />
+
+
+                    <!-- RESERVAR -->
+
+                    <Button Text="🏨  Reservar agora"
+                            BackgroundColor="#5A6F22"
+                            TextColor="White"
+                            CornerRadius="16"
+                            HeightRequest="56"
+                            FontAttributes="Bold"
+                            FontSize="17"
+                            Clicked="OnReservarClicked" />
+
+
+                    <!-- VOLTAR -->
+
+                    <Button Text="←  Voltar"
+                            BackgroundColor="#E8D48A"
+                            TextColor="#5A6F22"
+                            CornerRadius="16"
+                            HeightRequest="50"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="OnVoltarClicked" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+
+            <!-- ===================================================== -->
+            <!-- RODAPÉ -->
+            <!-- ===================================================== -->
+
+            <VerticalStackLayout Spacing="3"
+                                 Margin="0,0,0,5">
+
+                <Label Text="Pousada Jacaré Pepira"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="#5A6F22"
+                       HorizontalOptions="Center" />
+
+                <Label Text="Brotas • São Paulo"
+                       FontSize="11"
+                       TextColor="#777777"
+                       HorizontalOptions="Center" />
 
             </VerticalStackLayout>
+
 
         </VerticalStackLayout>
 
