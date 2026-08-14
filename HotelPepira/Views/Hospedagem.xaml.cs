@@ -66,7 +66,7 @@ public partial class Hospedagem : ContentPage
             {
                 Descricao = "Suíte Conforto",
                 Titulo = "Suíte Conforto",
-                Imagem = "familia.jpg",
+                Imagem = "conforto.jpg",
                 Valor = 549.00,
                 Detalhes =
                     "Acomodação espaçosa e confortável para aproveitar sua " +
@@ -79,7 +79,7 @@ public partial class Hospedagem : ContentPage
             {
                 Descricao = "Suíte Família",
                 Titulo = "Suíte Família",
-                Imagem = "luxo.jpg",
+                Imagem = "familia.jpg",
                 Valor = 649.00,
                 Detalhes =
                     "Acomodação ideal para famílias e grupos que procuram " +

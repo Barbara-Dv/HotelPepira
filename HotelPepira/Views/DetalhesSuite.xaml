@@ -8,9 +8,8 @@
 
     <ScrollView>
 
-        <VerticalStackLayout Spacing="18"
-                             Padding="18,24,18,30">
-
+        <VerticalStackLayout Padding="18,24,18,30"
+                             Spacing="18">
 
             <!-- ===================================================== -->
             <!-- CABEÇALHO -->
@@ -53,24 +52,29 @@
                    CornerRadius="22"
                    Padding="0"
                    HasShadow="True"
-                   BorderColor="#E4D8B5">
+                   BorderColor="#E4D8B5"
+                   IsClippedToBounds="True">
 
                 <VerticalStackLayout Spacing="0">
-
 
                     <!-- ================================================= -->
                     <!-- IMAGEM -->
                     <!-- ================================================= -->
 
-                    <Grid HeightRequest="260">
+                    <Grid HeightRequest="500">
+
+                        <!-- IMAGEM DA SUÍTE -->
 
                         <Image x:Name="imgSuite"
-                               Aspect="AspectFill" />
-
+                               Aspect="AspectFill"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Fill" />
 
                         <!-- ESCURECIMENTO SUAVE -->
 
-                        <Grid BackgroundColor="#55000000" />
+                        <Grid BackgroundColor="#55000000"
+                              HorizontalOptions="Fill"
+                              VerticalOptions="Fill" />
 
 
                         <!-- ETIQUETA -->
@@ -130,7 +134,6 @@
 
                     <VerticalStackLayout Padding="20"
                                          Spacing="16">
-
 
                         <!-- TÍTULO -->
 
@@ -429,7 +432,6 @@
                                        TextColor="White" />
 
                                 <Label Text="Aproveite os espaços da Pousada Jacaré Pepira para descansar depois das aventuras de Brotas."
-
                                        FontSize="12"
                                        TextColor="#F4EBD0"
                                        LineBreakMode="WordWrap" />
@@ -437,7 +439,6 @@
                             </VerticalStackLayout>
 
                         </Frame>
-
 
                     </VerticalStackLayout>
 
@@ -465,7 +466,6 @@
                            HorizontalTextAlignment="Center" />
 
                     <Label Text="Garanta sua estadia na Pousada Jacaré Pepira."
-
                            FontSize="13"
                            TextColor="#777777"
                            HorizontalTextAlignment="Center" />
@@ -518,7 +518,6 @@
                        HorizontalOptions="Center" />
 
             </VerticalStackLayout>
-
 
         </VerticalStackLayout>
 
