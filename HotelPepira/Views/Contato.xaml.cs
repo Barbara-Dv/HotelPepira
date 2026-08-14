@@ -10,7 +10,7 @@ public partial class Contato : ContentPage
     private async void OnTelefoneClicked(object sender, EventArgs e)
     {
         await DisplayAlert("Telefone",
-            "(11) 99999-9999",
+            "(14) 3653-6243",
             "OK");
     }
 
