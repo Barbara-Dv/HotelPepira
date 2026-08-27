@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace HotelPepira.Models
+﻿namespace HotelPepira.Models
 {
     public class Quarto
     {
+        public int Id { get; set; }
+
         public string Descricao { get; set; }
 
         public string Titulo { get; set; }
